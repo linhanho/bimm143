@@ -1,0 +1,203 @@
+---
+title: "CLass 9: Machine Learning"
+author: "Linh-An Ho"
+date: "2/4/2020"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## K-means clustering
+
+The main k-means function in R is called `kmeans()`. Let's play with it here.
+
+```{r}
+ # Generate some example data for clustering (30 points, centered round -3/3)
+tmp <- c(rnorm(30,-3), rnorm(30,3)) 
+
+# Taking the vector of 60 things and combining the data from tmp & rev(tmp) (reverses the order of tmp)
+x <- cbind(x=tmp, y=rev(tmp))
+
+plot(x)
+
+```
+
+
+Use the kmeans() function setting k (centers) to 2 and nstart=20 
+
+```{r}
+km <- kmeans(x, centers = 2, nstart = 20)
+```
+
+Inspect/print the results
+```{r}
+km
+```
+
+
+> Q. How many points are in each cluster?
+
+30 
+
+> Q. What ‘component’ of your result object details
+
+- cluster size? size
+- cluster assignment/membership? cluster
+
+```{r}
+# How many points are there in all
+length(km$cluster)
+
+# Tells you how many of each (i.e. 1s and 2s) there are 
+table(km$cluster)
+```
+
+- cluster center? cluster means
+
+Plot x colored by the kmeans cluster assignment and
+      add cluster centers as blue points
+```{r}
+#  Cluster assignment numbers (1 and 2) align with the color number (1=black, 2=red)
+plot(x, col = km$cluster)
+
+# Can change from the default by adding +(number)
+plot(x, col = km$cluster+1)
+
+# Adding the cluster centers in blue
+plot(x, col = km$cluster)
+points(km$centers, col = "blue", pch =15)
+```
+
+
+## Hierarchical Clustering in R
+
+The main hierarchical clustering function in R is called `hclust()`
+An important point here is that you have to calculate the distance matrix deom your input data before calling `hclust()`
+
+For this we will use the `dist()` function first
+```{r}
+d <- dist(x)
+hc <- hclust(d)
+hc
+```
+
+Folks often view the results of hierarchical clustering graphically. 
+From this graph, we get two "branches" one for each cluster (1-30) and one for (31-60)
+```{r}
+plot(hc)
+# Draw a line across
+abline(h=6, col="red", lty=2)
+abline(h=4, col="blue")
+```
+
+To get cluster membership vector I need to "cut" the tree at a certain height to yield my separate cluster branches
+```{r}
+# Cut by height h
+cutree(hc, h=6)
+```
+
+```{r}
+cutree(hc, h=4)
+```
+
+```{r}
+# Can tell it to cut into desired amount of clusters
+gp4 <- cutree(hc, k=6)
+```
+
+
+
+```{r}
+ # Step 1. Generate some example data for clustering
+x <- rbind(
+  matrix(rnorm(100, mean=0, sd = 0.3), ncol = 2), 
+  matrix(rnorm(100, mean = 1, sd = 0.3), ncol = 2),  
+  matrix(c(rnorm(50, mean = 1, sd = 0.3) ,
+  rnorm(50, mean = 0, sd = 0.3)), ncol = 2)) 
+colnames(x) <- c("x", "y")
+
+# Step 2. Plot the data without clustering
+plot(x)
+
+# Step 3. Generate colors for known clusters
+# (just so we can compare to hclust results) 
+
+col <- as.factor( rep(c("c1","c2","c3"), each=50) )
+plot(x, col=col)
+d <- dist(x)
+hc <- hclust(d)
+plot(hc)
+abline(h=2, col="red")
+```
+
+Use `cutree()` to get he clustership vector, and `table()` to see how many of each are in the cluster
+```{r}
+# Get cluster membership vector
+grps <- cutree(hc, k=3)
+table(grps)
+
+# Plot the membership vector 
+plot(x, col=grps)
+```
+
+
+##PCA of UK food data
+
+```{r}
+x <- read.csv("UK_foods.csv", row.names = 1)
+x
+```
+
+Making plots to explore the data
+
+Barplot
+```{r}
+barplot(as.matrix(x), beside=T, col=rainbow(nrow(x)))
+```
+
+Pairs Plot: pairs one country on one axis and another on the other axis; good for small datasets. 
+The farther the points from the middle line, the more different those data points are from each other
+```{r}
+pairs(x, col=rainbow(10), pch=16)
+```
+
+Principal Component Analysis (PCA): `prcomp()`function.
+"t" rotates the data set to switch rows and columns
+```{r}
+pca <- prcomp( t(x))
+#pca
+```
+
+`attributes()` tells us what are the components available in the results object (i.e. pca object)
+```{r}
+attributes(pca)
+```
+
+```{r}
+# plotting PCA1 and PCA2
+plot(pca$x[,1], pca$x[,2], xlab= "pca1", ylab= "pca2")
+text(pca$x[,1], pca$x[,2], colnames(x), col=c("black", "red", "blue", "dark green"))
+```
+
+
+```{r}
+summary(pca)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
