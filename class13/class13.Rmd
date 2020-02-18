@@ -39,3 +39,9 @@ Check that there's only a ligand (only MK1)
 lig
 ```
 
+
+```{r}
+res <- read.pdb("all.pdbqt", multi=TRUE)
+write.pdb(res, "results.pdb")
+```
+
