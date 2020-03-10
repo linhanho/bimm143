@@ -1,5 +1,5 @@
 ---
-title: "Class 12: Structural Bionformatics 1"
+title: "Class 12: Structural Bioinformatics 1"
 output: github_document
 ---
 
@@ -45,10 +45,33 @@ HIV-1 protease structures are in the current PDB?
 
 1289
 
+#Part 2
 
+Read a single PDB structure into R
 
+```{r}
+library(bio3d)
 
+pdb <-  read.pdb("1hsg")
+pdb
 
+```
+
+## Select protein only atoms
+
+Here I will use the `atom.select()` function to do this.
+
+```{r}
+prot <- atom.select(pdb, "protein", value = TRUE)
+lig <- atom.select(pdb, "ligand", value = TRUE)
+
+```
+
+And write out these new PDB objects with the `write.pdb()` function.
+```{r}
+write.pdb(lig, file = "1hsg_ligand.pdb")
+write.pdb(prot, file = "1hsg_protein.pdb")
+```
 
 
 
