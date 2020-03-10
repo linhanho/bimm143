@@ -158,12 +158,4 @@ attributes(keggres)
 ```
 
 We use the KEGG pathway ID from our top hit along with our `foldrange` vector to view our results as a more useful figure.
-```{r}
-
-```
-
-
-```{r}
-
-```
 
