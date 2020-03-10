@@ -1,8 +1,8 @@
-#' ---
-#' title: "Class 5: Data Visualization and graphs in R"
-#' author: "Linh-An Ho"
-#' date: "January 23rd, 2020"
-#' ---
+ ---
+title: "Class 5: Data Visualization and graphs in R"
+author: "Linh-An Ho"
+date: "January 23rd, 2020"
+ ---
 
 #Class 5
 #Data Visualization and graphs in R
