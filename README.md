@@ -13,7 +13,7 @@ _Introductory Material: Working With R
 
 Using R and Other Tools for Bioinformatics Analysis
 
-- Class 8 - [An Introduction to Machine Learning (Hierarchical Clustering)]
+- Class 8 - [An Introduction to Machine Learning (Hierarchical Clustering)](https://github.com/linhanho/bimm143/blob/master/class08/class08.md)
 - Class 9 - [Analyzing High Dimensional Datasets and Unsupervised Learning](https://github.com/linhanho/bimm143/blob/master/class09/class09.md)
 - Class 10 - [Structural Bioinformatics: Analyzing Protein Structure and Function](https://github.com/linhanho/bimm143/blob/master/class10/class10.md)
 - Class 12 - [Structural Bioinformatics](https://github.com/linhanho/bimm143/blob/master/class12/class12.md)
