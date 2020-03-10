@@ -5,7 +5,7 @@ This is my repository for my Bioinformatics class at UC San Diego during Winter 
 
 # Index of Material
 
-_Introductory Material: Working With R
+_Introductory Material: Working With R_
 
 - Class 5 - [Basic Data Exploration and Visualization in R HTML, MD, Rmd](https://github.com/linhanho/bimm143/blob/master/class05/class05.md) 
 - Class 6 - [Creating R Functions](https://github.com/linhanho/bimm143/blob/master/class06/class06.md)
