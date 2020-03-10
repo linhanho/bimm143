@@ -1,8 +1,9 @@
- ---
+---
 title: "Class 5: Data Visualization and graphs in R"
 author: "Linh-An Ho"
 date: "January 23rd, 2020"
- ---
+output: github_document
+---
 
 #Class 5
 #Data Visualization and graphs in R

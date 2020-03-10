@@ -5,7 +5,7 @@ Linh-An Ho
 
 ## Class 5
 
-# Data Visualization and graphs in R
+Data Visualization and graphs in R
 
 ``` r
 plot(1:10, col = "blue", typ = "o")
