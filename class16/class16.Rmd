@@ -159,11 +159,11 @@ attributes(keggres)
 
 We use the KEGG pathway ID from our top hit along with our `foldrange` vector to view our results as a more useful figure.
 ```{r}
-pathview(gene.data=foldchanges, pathway.id="hsa04110")
+
 ```
 
 
 ```{r}
-knitr::include_graphics(hsa04110.pathview.png)
+
 ```
 
