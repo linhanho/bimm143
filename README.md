@@ -11,7 +11,7 @@ _Introductory Material: Working With R_
 - Class 6 - [Creating R Functions](https://github.com/linhanho/bimm143/blob/master/class06/class06.md)
 - Class 7 - [R Packages, working with CRAN, and working with Bioconductor](https://github.com/linhanho/bimm143/tree/master/class07)
 
-Using R and Other Tools for Bioinformatics Analysis
+_Using R and Other Tools for Bioinformatics Analysis_
 
 - Class 8 - [An Introduction to Machine Learning (Hierarchical Clustering)](https://github.com/linhanho/bimm143/blob/master/class08/class08.md)
 - Class 9 - [Analyzing High Dimensional Datasets and Unsupervised Learning](https://github.com/linhanho/bimm143/blob/master/class09/class09.md)
